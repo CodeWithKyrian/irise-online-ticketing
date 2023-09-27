@@ -206,7 +206,7 @@
             <div class="updates">
                 <div class="update">
                     <div class="profile-photo">
-                        <img src="{{asset('images/Blaise.jpg')}}" alt="">
+                        <img src="{{asset('images/avatar.png')}}" alt="">
                     </div>
                     <div class="message">
                         <p><b>Chukwuduzie </b>successfully purchased a Premium ticket.</p>
@@ -215,7 +215,7 @@
                 </div>
                 <div class="update">
                     <div class="profile-photo">
-                        <img src="{{asset('images/Blaise.jpg')}}" alt="">
+                        <img src="{{asset('images/avatar.png')}}" alt="">
                     </div>
                     <div class="message">
                         <p><b>Kyrian </b>successfully purchased a regular ticket.</p>
@@ -224,7 +224,7 @@
                 </div>
                 <div class="update">
                     <div class="profile-photo">
-                        <img src="{{asset('images/Blaise.jpg')}}" alt="">
+                        <img src="{{asset('images/avatar.png')}}" alt="">
                     </div>
                     <div class="message">
                         <p><b>Bright </b>successfully purchased a gold ticket.</p>

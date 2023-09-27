@@ -62,13 +62,13 @@ services:
         networks:
             - app_network
 
-#    mailpit:
-#        image: 'axllent/mailpit:latest'
-#        ports:
-#            - '${MAIL_PORT:-1025}:1025'
-#            - '${MAIL_DASHBOARD_PORT:-8025}:8025'
-#        networks:
-#            - app_network
+    mailpit:
+        image: 'axllent/mailpit:latest'
+        ports:
+            - '${MAIL_PORT:-1025}:1025'
+            - '${MAIL_DASHBOARD_PORT:-8025}:8025'
+        networks:
+            - app_network
 
 networks:
     app_network:
