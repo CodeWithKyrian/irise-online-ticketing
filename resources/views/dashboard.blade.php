@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Dashboard | {{ config('app.name', 'IRise') }} </title>
+    <title>Dashboard | {{ config('app.name', 'I-Rise') }} </title>
     <meta name="description" content="Event Ticketing Platform for IRise internship seminar">
     <meta name="keywords" content="IRise, IRise Internship, IRise Seminar, IRise Seminar Ticket, IRise Ticket">
 
@@ -19,14 +19,15 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
+    <script src="{{asset('js/dashboard.js')}}" defer></script>
 </head>
 
 <body>
 <div class="container">
     <aside>
         <div class="top">
-            <img src="{{asset('images/logo-dark.png')}}" alt="">
+            <img src="{{asset('img/logo-dark.png')}}" alt="">
         </div>
         <div class="close" id="close-btn">
             <span class="material-icons-sharp">close</span>
@@ -63,7 +64,7 @@
                         </span>
                 <h3>Sales</h3>
             </a>
-            <a href="#">
+            <a href="{{route('user-create')}}">
                     <span class="material-icons-sharp">
                         add
                         </span>
@@ -129,27 +130,6 @@
                 </small>
             </div>
             <!-- END OF EXPENSES -->
-            <div class="income">
-                <span class="material-icons-sharp"> stacked_line_chart</span>
-                <div class="middle">
-                    <div class="left">
-                        <h3>Total Income</h3>
-                        <h1>$30,024</h1>
-                    </div>
-                    <div class="progress">
-                        <svg>
-                            <circle cx="32" cy="32" r="28"></circle>
-                        </svg>
-                        <div class="number">
-                            <p>80%</p>
-                        </div>
-                    </div>
-                </div>
-                <small class="text-muted">
-                    Last 24 Hours
-                </small>
-            </div>
-            <!-- END OF INCOME -->
         </div>
         <!-- END OF INSIGHTS -->
         <div class="recent-orders">
@@ -195,7 +175,7 @@
                     <small class="text-muted">Administrator</small>
                 </div>
                 <div class="profile-photo">
-                    <img src="{{asset('images/avatar.png')}}" alt="profile">
+                    <img src="{{asset('img/avatar.png')}}" alt="profile">
                 </div>
             </div>
         </div>
@@ -206,29 +186,29 @@
             <div class="updates">
                 <div class="update">
                     <div class="profile-photo">
-                        <img src="{{asset('images/avatar.png')}}" alt="">
+                        <img src="{{asset('img/avatar.png')}}" alt="">
                     </div>
                     <div class="message">
                         <p><b>Chukwuduzie </b>successfully purchased a Premium ticket.</p>
-                        <small class="text-muted"> 2 Minutes Ago </small>
+                        <small class="text-muted"> a minute ago </small>
                     </div>
                 </div>
                 <div class="update">
                     <div class="profile-photo">
-                        <img src="{{asset('images/avatar.png')}}" alt="">
+                        <img src="{{asset('img/avatar.png')}}" alt="">
                     </div>
                     <div class="message">
                         <p><b>Kyrian </b>successfully purchased a regular ticket.</p>
-                        <small class="text-muted"> 5 Minutes Ago </small>
+                        <small class="text-muted"> 5 minutes ago </small>
                     </div>
                 </div>
                 <div class="update">
                     <div class="profile-photo">
-                        <img src="{{asset('images/avatar.png')}}" alt="">
+                        <img src="{{asset('img/avatar.png')}}" alt="">
                     </div>
                     <div class="message">
                         <p><b>Bright </b>successfully purchased a gold ticket.</p>
-                        <small class="text-muted"> 7 Minutes Ago </small>
+                        <small class="text-muted"> 10 minutes ago </small>
                     </div>
                 </div>
             </div>
@@ -276,12 +256,12 @@
                     <h3> 849</h3>
                 </div>
             </div>
-            <div class="item add-user">
+            <a href="{{route('user-create')}}" class="item add-user">
                 <div>
                     <span class="material-icons-sharp">add</span>
                     <h3>Add User</h3>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </div>

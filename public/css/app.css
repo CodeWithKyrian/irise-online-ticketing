@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)),
+    url('../img/student.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    font-weight: bold;
+    display: grid;
+    grid-template-rows: 5rem 1fr;
+}
+
+header {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+.nav {
+    display: flex;
+}
+
+.nav a {
+    justify-content: space-between;
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: #9854cb;
+    margin: 0 2rem;
+}
+
+section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+}
+
+.hero {
+    font-size: 5rem;
+    color: white;
+}
+
+span {
+    color: #9854cb;
+}
+
+.logo {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.veritas-logo {
+    /*width: 80px;*/
+    height: 80px;
+}
+
+.signup-form {
+    display: flex;
+    justify-content: center;
+    background-color: #9854cb;
+    opacity: 0.95;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    color: white;
+    /*margin: 0rem 18rem;*/
+
+}
+
+.sign {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-input {
+    padding: 0.8rem;
+    width: 15rem;
+    border-radius: 0.3rem;
+    border: 0;
+    margin: 0.5rem;
+}
+
+.form-button {
+    padding: 0.6rem 1rem;
+    margin: 1rem 0rem;
+    color: #9854cb;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 0.2rem;
+    border: 0;
+    background-color: white;
+    cursor: pointer;
+}
