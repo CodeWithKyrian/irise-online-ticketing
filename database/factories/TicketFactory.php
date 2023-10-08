@@ -21,7 +21,7 @@ class TicketFactory extends Factory
         return [
             'ticket_id' => 'IRS-' . fake()->unique()->randomNumber(5),
             'user_id' => User::factory(),
-            'ticket_type_id' => fake()->numberBetween(1, 3),
+            'ticket_type_id' => fake()->numberBetween(1, 2),
         ];
     }
 }

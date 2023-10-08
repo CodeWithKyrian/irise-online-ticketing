@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Raleway:wght@300&display=swap');
 /* -------------------- ROOT VARIABLES -----------------------*/
 :root {
-    --color-primary: #7380ec;
+    --color-primary: #9854cb;
     --color-danger: #ff7782;
     --color-veritas: #8878fc;
     --color-success: #41f1b6;
@@ -9,10 +9,10 @@
     --color-white: #fff;
     --color-info-dark: #7d8da1;
     --color-info-light: #dce1eb;
-    --color-dark: #363949;
+    --color-dark: #480171;
     --color-light: rgba(132, 139, 200, 0.18);
     --color-primary-variant: #111e88;
-    --color-dark-variant: #677483;
+    --color-dark-variant: #1e002f;
     --color-background: #f6f6f9;
 
     --card-border-radius: 2rem;
@@ -63,10 +63,8 @@ body {
 }
 
 .container {
-    display: grid;
+    display: flex;
     margin: 0 auto;
-    gap: 1.8rem;
-    grid-template-columns:14rem 1fr 23rem;
 }
 
 a {
@@ -98,6 +96,7 @@ h5 {
 small {
     font-size: 0.75rem;
 }
+
 
 .profile-photo {
     width: 2.8rem;
@@ -146,14 +145,16 @@ b {
 /* sidebar */
 aside {
     height: 100vh;
+    width: 16rem;
     background: var(--color-white);
+    position: relative;
 }
 
-aside .top {
+aside .logo-area {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1.4rem;
+    margin-bottom: 3rem;
 }
 
 aside .logo {
@@ -168,6 +169,9 @@ aside .logo img {
 
 aside .close {
     display: none;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
 }
 
 /* SIDEBAR 2  */
@@ -175,9 +179,6 @@ aside .sidebar {
     background: var(--color-white);
     display: flex;
     flex-direction: column;
-    height: 86vh;
-    position: relative;
-    top: 3rem;
 }
 
 aside h3 {
@@ -202,7 +203,7 @@ aside .sidebar a span {
 
 aside .sidebar a:last-child {
     position: absolute;
-    bottom: 2rem;
+    bottom: .5rem;
     width: 100%;
 }
 
@@ -242,7 +243,9 @@ aside .sidebar .user-count {
 
 /* MAIN */
 main {
-    margin-top: 1.4rem;
+    flex: 1 1;
+    height: 100vh;
+    overflow-y: scroll;
 }
 
 main .date {
@@ -404,23 +407,24 @@ main .recent-orders a {
     color: var(--color-primary);
 }
 
-.right {
-    margin-top: 1.4rem;
-    padding: 0 1rem;
-}
 
-.right .top {
+
+main .top {
     display: flex;
     justify-content: end;
+    align-items: center;
+    padding: .5rem 1rem;
     gap: 2rem;
-    /*background: gray;*/
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid var(--color-light);
 }
 
-.right .top button {
+main .top button {
     display: none;
 }
 
-.right .themeToggler {
+main .themeToggler {
     background: var(--color-light);
     display: flex;
     justify-content: space-between;
@@ -431,7 +435,7 @@ main .recent-orders a {
     border-radius: var(--border-radius-1);
 }
 
-.right .themeToggler span {
+main .themeToggler span {
     font-size: 1.2rem;
     width: 50%;
     height: 100%;
@@ -440,21 +444,26 @@ main .recent-orders a {
     justify-content: center;
 }
 
-.right .themeToggler span.active {
+main .themeToggler span.active {
     background: var(--color-primary);
     color: white;
     border-radius: var(--border-radius-1);
 }
 
-.right .themeToggler .material-icons-sharp{
+main .themeToggler .material-icons-sharp {
     line-height: initial;
 }
 
-.right .top .profile {
+main .top .profile {
     display: flex;
     align-items: center;
     gap: 2rem;
     text-align: right;
+}
+
+main .content{
+    padding: 2rem 3rem;
+    margin: 0 auto;
 }
 
 /* RECENT UPDATES */
@@ -562,12 +571,85 @@ main .recent-orders a {
     font-weight: 600;
 }
 
+
+/* REGISTER PAGE */
+main .register-card {
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1.5rem;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+main .register-card .header {
+    font-size: 1.2rem;
+    margin-bottom: 1.4rem;
+}
+
+.register-card .body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 1.4rem;
+}
+
+.register-card .body .form-outline {
+    width: calc(50% - 10px); /* Two columns, with a little spacing */
+    margin-bottom: 1rem;
+}
+
+.register-card .body .form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.register-card .body .form-control {
+    background: var(--color-light);
+    color: var(--color-dark);
+    border-radius: var(--border-radius-1);
+    padding: 0.8rem 1rem;
+    width: 100%;
+}
+
+.register-card .body select.form-control{
+    background-image: url("data:image/svg+xml;utf8,<svg fill='currentColor' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 99%;
+    background-position-y: 5px;
+}
+
+.register-card .body .form-error{
+    color: #f12b2b;
+}
+
+.register-card .footer{
+    display: flex;
+    justify-content: center;
+}
+
+.register-card .footer button{
+    background-color: var(--color-primary);
+    border: 2px dashed var(--color-primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.6rem;
+    border-radius: var(--border-radius-1);
+    cursor: pointer;
+}
+
+.register-card .footer button:hover{
+    background-color: transparent;
+    color: var(--color-primary);
+}
+
+
+
 /* MEDIA QUERRIES */
 @media screen and (max-width: 1200px) {
-    .container {
-        width: 94%;
-        grid-template-columns: 7rem auto 23rem;
-    }
 
     aside .logo h2 {
         display: none;
@@ -617,7 +699,6 @@ main .recent-orders a {
 @media screen and (max-width: 768px) {
     .container {
         width: 100%;
-        grid-template-columns: 1fr;
     }
 
     aside {
@@ -665,10 +746,8 @@ main .recent-orders a {
         cursor: pointer;
     }
 
-    main {
-        margin-top: 8rem;
-        padding: 0 1rem;
-
+    main .content {
+        padding: 1.5rem;
     }
 
     main .recent-orders {
@@ -682,49 +761,39 @@ main .recent-orders a {
         margin: 0;
     }
 
-    .right {
-        width: 100%;
-        margin: 0 auto 4rem;
+    .register-card .form-outline {
+        width: 100%; /* Full width on smaller screens */
     }
 
-    .right .top {
-        position: fixed;
-        top: 0;
-        left: 0;
-        align-items: center;
-        padding: 0 0.8rem;
-        height: 4.6rem;
-        width: 100%;
-        margin: 0;
-        z-index: 2;
-        box-shadow: 0 1rem var(--color-light);
-    }
 
-    .right .top .themeToggler {
+    main .top .themeToggler {
         width: 4.4rem;
         position: absolute;
         left: 66%;
     }
 
-    .right .profile .info {
+    main .profile .info {
         display: none;
     }
 
-    .right .top button {
+    main .top button {
         display: inline-block;
         background-color: transparent;
         cursor: pointer;
         color: var(--color-dark);
         position: absolute;
         left: 1rem;
-
     }
 
-    .right .top button span {
+    main .top button span {
         font-size: 2rem;
-
     }
 
+
+    .register-card .body .form-outline
+    {
+        width: 100%;
+    }
 
 }
 

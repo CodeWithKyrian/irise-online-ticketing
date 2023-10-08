@@ -25,6 +25,11 @@ class DashboardController extends Controller
         return view('dashboard', compact('users', 'totalSales'));
     }
 
+    public function attendees()
+    {
+        return view('attendees');
+    }
+
     public function createUser()
     {
         return view('create_user', [
@@ -35,8 +40,11 @@ class DashboardController extends Controller
 
     public function storeUser(StoreUserRequest $request)
     {
-        $ticket = Ticket::find($request->input('ticket_id'));
+        $ticket = Ticket::generate($request->input('ticket_type_id'));
 
-        $user = $ticket->user()->create($request->validated());
+        $user = User::create($request->validated());
+        $ticket->update(['user_id' => $user->id]);
+
+        return redirect()->route('dashboard');
     }
 }

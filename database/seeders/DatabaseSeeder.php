@@ -18,12 +18,10 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Volunteer Lead',
             'email' => 'volunteerlead@internsify.com',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi' // password
         ]);
 
-        TicketType::factory()->create(['name' => 'Basic', 'price' => 1000.00]);
-        TicketType::factory()->create(['name' => 'Standard', 'price' => 2000.00]);
-        TicketType::factory()->create(['name' => 'Premium', 'price' => 5000.00]);
-
-        Ticket::factory(10)->create();
+        TicketType::factory()->create(['name' => 'Regular', 'price' => 1500.00]);
+        TicketType::factory()->create(['name' => 'VIP', 'price' => 3000.00]);
     }
 }

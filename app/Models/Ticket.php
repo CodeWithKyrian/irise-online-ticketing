@@ -15,12 +15,15 @@ class Ticket extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['ticket_type_id', 'user_id'];
+    protected $fillable = ['ticket_type_id', 'ticket_id', 'user_id'];
 
     /**
      * Indicates if the model should be timestamped.
      */
     public $timestamps = false;
+
+    // booted
+
 
     /**
      *  The user that owns the ticket.
@@ -33,5 +36,13 @@ class Ticket extends Model
     public function type(): BelongsTo
     {
         return $this->belongsTo(TicketType::class, 'ticket_type_id');
+    }
+
+    public static function generate(int $ticketTypeId): self
+    {
+        return self::create([
+            'ticket_type_id' => $ticketTypeId,
+            'ticket_id' => 'IRS-' . fake()->unique()->randomNumber(5)
+        ]);
     }
 }

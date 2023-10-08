@@ -11,7 +11,8 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('tickets', function (Blueprint $table) {
-            $table->string('ticket_id')->primary();
+            $table->id();
+            $table->string('ticket_id')->index();
             $table->foreignId('user_id')->nullable()->constrained();
             $table->foreignId('ticket_type_id')->constrained();
         });
