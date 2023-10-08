@@ -15,6 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/auto-deploy', function (){
+    chdir('/var/www');
+
+    $pullOutput = shell_exec('git pull');
+    echo "<pre>$pullOutput</pre>";
+
+    $status = shell_exec('git status');
+    echo "<pre>$status</pre>";
+});
+
 Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::post('login', [AuthController::class, 'attemptLogin'])->name('login');
 
