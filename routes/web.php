@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/auto-deploy', function (){
-    chdir('/var/www/irise-website');
+    chdir('/var/www');
 
     $pullOutput = shell_exec('git pull');
     echo "<pre>$pullOutput</pre>";
