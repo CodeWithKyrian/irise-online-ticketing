@@ -12,7 +12,6 @@ services:
       - ./docker/ssl.conf:/opt/docker/etc/nginx/vhost.ssl.conf
       - ./docker/queue-worker.conf:/opt/docker/etc/supervisor.d/queue-worker.conf
       - ./docker/scheduler.sh:/opt/docker/bin/service.d/cron.d/scheduler.sh
-      - app_storage:/var/www/storage:rw
 #      - certbot-public:/var/www/certbot:ro
 #      - certbot-etc:/etc/letsencrypt
 #      - certbot-var:/var/lib/letsencrypt
@@ -57,7 +56,6 @@ networks:
     driver: bridge
 
 volumes:
-  app_storage:
   mysql_storage:
 #  certbot-public:
 #  certbot-etc:
