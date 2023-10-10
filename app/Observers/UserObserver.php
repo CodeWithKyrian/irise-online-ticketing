@@ -17,7 +17,7 @@ class UserObserver
      */
     public function created(User $user): void
     {
-        $user->notify(new WelcomeEmail());
+//        $user->notify(new WelcomeEmail());
     }
 
     /**
