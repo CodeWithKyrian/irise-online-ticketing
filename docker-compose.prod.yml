@@ -13,9 +13,9 @@ services:
       - ./docker/queue-worker.conf:/opt/docker/etc/supervisor.d/queue-worker.conf
       - ./docker/scheduler.sh:/opt/docker/bin/service.d/cron.d/scheduler.sh
       - app_storage:/var/www/storage:rw
-      - certbot-public:/var/www/certbot:ro
-      - certbot-etc:/etc/letsencrypt
-      - certbot-var:/var/lib/letsencrypt
+#      - certbot-public:/var/www/certbot:ro
+#      - certbot-etc:/etc/letsencrypt
+#      - certbot-var:/var/lib/letsencrypt
     networks:
       - app_network
     depends_on:
@@ -41,16 +41,16 @@ services:
       retries: 3
       timeout: 5s
 
-  certbot:
-    image: certbot/certbot
-    container_name: "codewithkyrian_certbot"
-    volumes:
-      - certbot-etc:/etc/letsencrypt
-      - certbot-var:/var/lib/letsencrypt
-      - certbot-public:/var/www/public:rw
-    depends_on:
-      - backend
-    command: certonly --webroot --webroot-path=/var/www/public --email kyrianobikwelu@gmail.com --agree-tos --no-eff-email --force-renewal -d codewithkyrian.com  -d www.codewithkyrian.com -d backend.codewithkyrian.com
+#  certbot:
+#    image: certbot/certbot
+#    container_name: "codewithkyrian_certbot"
+#    volumes:
+#      - certbot-etc:/etc/letsencrypt
+#      - certbot-var:/var/lib/letsencrypt
+#      - certbot-public:/var/www/public:rw
+#    depends_on:
+#      - backend
+#    command: certonly --webroot --webroot-path=/var/www/public --email kyrianobikwelu@gmail.com --agree-tos --no-eff-email --force-renewal -d codewithkyrian.com  -d www.codewithkyrian.com -d backend.codewithkyrian.com
 
 networks:
   app_network:
@@ -59,6 +59,6 @@ networks:
 volumes:
   app_storage:
   mysql_storage:
-  certbot-public:
-  certbot-etc:
-  certbot-var:
+#  certbot-public:
+#  certbot-etc:
+#  certbot-var:
