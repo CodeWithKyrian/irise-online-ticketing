@@ -21,7 +21,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
 
     <!-- Scripts -->
-    <link rel="stylesheet" href="{{asset('css/dashboard.css?3efe')}}">
+    <link rel="stylesheet" href="{{asset('css/dashboard.css?3ee')}}">
     <script src="{{asset('js/dashboard.js')}}" defer></script>
 </head>
 
@@ -29,7 +29,8 @@
 <div class="container">
     <aside>
         <div class="logo-area">
-            <img src="{{asset('img/logo-dark.png')}}" alt="">
+            <img class="light-logo" src="{{asset('img/logo-dark.png')}}" alt="">
+            <img class="dark-logo" src="{{asset('img/logo-light.png')}}" alt="">
         </div>
         <div class="close" id="close-btn">
             <span class="material-icons-sharp">close</span>
@@ -54,12 +55,16 @@
                         </span>
                 <h3>Register User</h3>
             </a>
-            <a href="#">
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit">
                     <span class="material-icons-sharp">
-                        grid_view
+                        power_settings_new
                         </span>
-                <h3>Logout</h3>
-            </a>
+                    <h3>Logout</h3>
+                </button>
+            </form>
+
         </div>
     </aside>
     <!-- END OF ASIDE -->
@@ -75,7 +80,7 @@
             </div>
             <div class="profile">
                 <div class="info">
-                    <p>Hey <b>Blaise</b></p>
+                    <p>Hey <b>{{auth()->user()->name}}</b></p>
                     <small class="text-muted">Administrator</small>
                 </div>
                 <div class="profile-photo">
@@ -88,64 +93,7 @@
             {{$slot}}
         </section>
     </main>
-    <!--END OF MAIN-->
 
-    {{--    <div class="right">--}}
-    {{--        <div class="top">--}}
-    {{--            <button id="menu-btn">--}}
-    {{--                <span class="material-icons-sharp">menu</span>--}}
-    {{--            </button>--}}
-    {{--            <div class="themeToggler">--}}
-    {{--                <span class="material-icons-sharp active">light_mode</span>--}}
-    {{--                <span class="material-icons-sharp">dark_mode</span>--}}
-    {{--            </div>--}}
-    {{--            <div class="profile">--}}
-    {{--                <div class="info">--}}
-    {{--                    <p>Hey <b>Blaise</b></p>--}}
-    {{--                    <small class="text-muted">Administrator</small>--}}
-    {{--                </div>--}}
-    {{--                <div class="profile-photo">--}}
-    {{--                    <img src="{{asset('img/avatar.png')}}" alt="profile">--}}
-    {{--                </div>--}}
-    {{--            </div>--}}
-    {{--        </div>--}}
-    {{--        <!--END OF TOP-->--}}
-
-    {{--        <div class="recent-updates">--}}
-    {{--            <h2>Recent Updates</h2>--}}
-    {{--            <div class="updates">--}}
-    {{--                <div class="update">--}}
-    {{--                    <div class="profile-photo">--}}
-    {{--                        <img src="{{asset('img/avatar.png')}}" alt="">--}}
-    {{--                    </div>--}}
-    {{--                    <div class="message">--}}
-    {{--                        <p><b>Chukwuduzie </b>successfully purchased a Premium ticket.</p>--}}
-    {{--                        <small class="text-muted"> a minute ago </small>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--                <div class="update">--}}
-    {{--                    <div class="profile-photo">--}}
-    {{--                        <img src="{{asset('img/avatar.png')}}" alt="">--}}
-    {{--                    </div>--}}
-    {{--                    <div class="message">--}}
-    {{--                        <p><b>Kyrian </b>successfully purchased a regular ticket.</p>--}}
-    {{--                        <small class="text-muted"> 5 minutes ago </small>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--                <div class="update">--}}
-    {{--                    <div class="profile-photo">--}}
-    {{--                        <img src="{{asset('img/avatar.png')}}" alt="">--}}
-    {{--                    </div>--}}
-    {{--                    <div class="message">--}}
-    {{--                        <p><b>Bright </b>successfully purchased a gold ticket.</p>--}}
-    {{--                        <small class="text-muted"> 10 minutes ago </small>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--            </div>--}}
-    {{--        </div>--}}
-    {{--        <!--END OF RECENT UPDATES-->--}}
-
-    {{--    </div>--}}
 </div>
 </body>
 </html>

@@ -1,11 +1,5 @@
 <x-layout title="Dashboard">
 
-    <div class="date">
-        <label>
-            <input type="date">
-        </label>
-    </div>
-
     <div class="insights">
         <div class="sales">
             <span class="material-icons-sharp"> analytics</span>
@@ -33,7 +27,7 @@
             <div class="middle">
                 <div class="left">
                     <h3>Registered Tickets</h3>
-                    <h1>2000</h1>
+                    <h1>{{$registeredTickets}}</h1>
                 </div>
                 <div class="progress">
                     <svg>
@@ -52,7 +46,7 @@
     </div>
 
     <div class="recent-orders">
-        <h2>Recent orders</h2>
+        <h2>Recent Ticket Sales</h2>
         <table>
             <thead>
             <tr>
@@ -74,7 +68,7 @@
             @endforeach
             </tbody>
         </table>
-        <a href="#"> Show All</a>
+        <a href="{{route('attendees')}}"> Show All</a>
     </div>
 
 </x-layout>

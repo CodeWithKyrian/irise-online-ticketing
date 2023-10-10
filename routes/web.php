@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/auto-deploy', function (){
+Route::post('/auto-deploy', function () {
     chdir('/var/www');
 
     $pullOutput = shell_exec('git pull');
@@ -28,7 +28,12 @@ Route::post('/auto-deploy', function (){
 Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::post('login', [AuthController::class, 'attemptLogin'])->name('login');
 
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/attendees', [DashboardController::class, 'attendees'])->name('attendees');
-Route::get('/register-user', [DashboardController::class, 'createUser'])->name('user-create');
-Route::post('/store-user', [DashboardController::class, 'storeUser'])->name('user-store');
+Route::middleware('auth')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/attendees', [DashboardController::class, 'attendees'])->name('attendees');
+    Route::get('/register-user', [DashboardController::class, 'createUser'])->name('user-create');
+    Route::post('/store-user', [DashboardController::class, 'storeUser'])->name('user-store');
+
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+});
+

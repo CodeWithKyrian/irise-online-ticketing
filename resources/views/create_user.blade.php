@@ -1,11 +1,5 @@
 <x-layout title="Register User">
 
-    <div class="date">
-        <label>
-            <input type="date">
-        </label>
-    </div>
-
     <form class="register-card" method="POST" action="{{route('user-store')}}">
 
 

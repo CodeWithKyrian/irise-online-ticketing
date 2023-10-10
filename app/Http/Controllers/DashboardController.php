@@ -18,11 +18,13 @@ class DashboardController extends Controller
             ->take(8)
             ->get();
 
+        $registeredTickets = Ticket::count();
+
         $totalSales = User::join('tickets', 'users.id', '=', 'tickets.user_id')
             ->join('ticket_types', 'tickets.ticket_type_id', '=', 'ticket_types.id')
             ->sum('ticket_types.price');
 
-        return view('dashboard', compact('users', 'totalSales'));
+        return view('dashboard', compact('users', 'totalSales', 'registeredTickets'));
     }
 
     public function attendees()

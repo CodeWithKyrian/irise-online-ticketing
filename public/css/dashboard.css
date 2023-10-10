@@ -33,7 +33,7 @@
     --color-dark: #edeffd;
     --color-dark-variant: #a3bdcc;
     --color-light: rgba(0, 0, 0, 0.4);
-    --box-shadow: 0 2rem 3rem var(--color-light);
+    --box-shadow: 0 1rem 2rem var(--color-light) ;
 }
 
 * {
@@ -157,15 +157,24 @@ aside .logo-area {
     margin-bottom: 3rem;
 }
 
-aside .logo {
-    display: flex;
-    gap: 0.8rem;
+
+/* Initially, hide the dark logo and show the light logo */
+body:not(.dark-theme-variables) .logo-area .dark-logo {
+    display: none;
+}
+body:not(.dark-theme-variables) .logo-area .light-logo {
+    display: block;
 }
 
-aside .logo img {
-    width: 2rem;
-    height: 2rem;
+/* When 'dark-theme' is added, hide the light logo and show the dark logo */
+body.dark-theme-variables .logo-area .dark-logo {
+    display: block;
 }
+
+body.dark-theme-variables .logo-area .light-logo {
+    display: none;
+}
+
 
 aside .close {
     display: none;
@@ -185,10 +194,11 @@ aside h3 {
     font-weight: 500;
 }
 
-aside .sidebar a {
+aside .sidebar a,
+aside .sidebar button {
     display: flex;
     color: var(--color-info-dark);
-    margin-left: 2rem;
+    padding-left: 1.5rem;
     gap: 1rem;
     align-items: center;
     position: relative;
@@ -196,14 +206,16 @@ aside .sidebar a {
     transition: all 300ms ease;
 }
 
-aside .sidebar a span {
+aside .sidebar a span,
+aside .sidebar button span {
     font-size: 1.6rem;
     transition: all 300ms ease;
 }
 
-aside .sidebar a:last-child {
+aside .sidebar button {
+    background: transparent;
     position: absolute;
-    bottom: .5rem;
+    bottom: 2rem;
     width: 100%;
 }
 
@@ -214,6 +226,8 @@ aside .sidebar a.active {
 }
 
 aside .sidebar a.active:before {
+    position: absolute;
+    left: 0;
     content: '';
     width: 6px;
     height: 100%;
@@ -225,11 +239,16 @@ aside .sidebar a.active span {
     margin-left: calc(1rem - 6px);
 }
 
-aside .sidebar a:hover {
+aside .sidebar a:hover,
+aside .sidebar button:hover
+
+{
     color: var(--color-primary);
 }
 
-aside .sidebar a:hover span {
+aside .sidebar a:hover span,
+aside .sidebar button:hover span
+{
     margin-left: 1rem;
 }
 
